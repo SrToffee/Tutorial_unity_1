@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class controller : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float turnspeed;
-    public float horizontalInput;
+    private float speed = 20.0f;
+    private float turnspeed = 45.0f;
+    private float horizontalInput;
 
-    public float forwardInput;
+    private float forwardInput;
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -21,6 +21,6 @@ public class controller : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        transform.Rotate(Vector3.up, horizontalInput * Time.deltaTime * speed);
+        transform.Rotate(Vector3.up, horizontalInput * Time.deltaTime * turnspeed);
     }
 }
